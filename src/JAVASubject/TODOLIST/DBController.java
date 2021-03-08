@@ -11,6 +11,7 @@ import java.util.HashMap;
  */
 
 public interface DBController {
+
     ArrayList<HashMap> search(int a) throws SQLException;
 
     boolean insert(Schedule sch) throws SQLException;
@@ -22,9 +23,10 @@ public interface DBController {
 
     /**
      * tableが存在しない場合、新規作成
-     *
      * @param tableName
      * @throws SQLException
+     *
+     * @deprecated
      */
     static void createNewTableIfNotExists(String tableName) throws SQLException {
         Connection conn;

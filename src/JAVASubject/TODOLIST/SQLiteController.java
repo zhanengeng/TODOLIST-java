@@ -11,6 +11,35 @@ import java.util.HashMap;
  * データベースに対する操作機能（増加、修正、検索）実装
  */
 public class SQLiteController implements DBController {
+    /**
+     * SQLiteControllerがJVMに初めてロードされる時、1回だけ実施。
+     */
+    static{
+        Connection conn;
+        Statement stmt;
+        conn = JDBCUtils.getConnection();
+        // System.out.println("Opened database successfully");
+
+        String sql = "CREATE TABLE IF NOT EXISTS TODOLIST" +
+                "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "CONTENTS TEXT NOT NULL," +
+                "DEADLINE DATE, " +
+                "ISDELETED INTEGER DEFAULT 0)";
+
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+            // close
+            JDBCUtils.close(stmt, conn);
+
+            //        System.out.println("created new table successfully!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
 
     /**
      * 未完成予定を取得

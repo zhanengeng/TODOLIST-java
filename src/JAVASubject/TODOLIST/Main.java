@@ -14,6 +14,8 @@ public class Main {
         // SQLiteを使うため、SQLiteControllerをdbのコントローラーとする。
         SQLiteController sqlcontroller = new SQLiteController();
 
+        // tableの新規作成がSQLiteControllerのstaticブロック内で実施するため、以下のコードを不要。
+        /*
         // 1. TODOLISTが存在しない場合、新しく作る。（存在判別はDBControllerクラスで行う。）
         String tableName = "TODOLIST"; // dbのtableの名前。
         try {
@@ -21,7 +23,8 @@ public class Main {
             // System.out.println("test@Main createNewList OK");
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+
 
         // main logic
         while (true) {

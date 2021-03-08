@@ -18,6 +18,11 @@ public class ToDoList {
     // 予定の画面上のNo.とdb中のNo.の関係集
     private ArrayList<Object> numIndex;
 
+    /**
+     * @deprecated
+     * @param tableName
+     * @throws SQLException
+     */
     public static void createNewList(String tableName) throws SQLException {
         // create a new table
         DBController.createNewTableIfNotExists(tableName);
